@@ -35,4 +35,4 @@ to make it easier to programatically work with."
   (setf *trace-output* *timer-stream*)
   `(let ((fn-val (time ,@body))
           (times (cons-time-output `,*timer-stream*)))
-     `(values ,fn-val ,times)))
+     (values fn-val times)))
