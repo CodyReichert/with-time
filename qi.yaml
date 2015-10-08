@@ -1,0 +1,7 @@
+name: with-time
+author: Cody Reichert
+email: codyreichert@gmail.com
+
+packages:
+  - name: cl-ppcre
+    version: latest
