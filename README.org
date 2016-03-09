@@ -1,15 +1,29 @@
-* Timer 
+* with-time
+
+=with-time= provides a simple wrapper around SBCL's built-in =time= function to make it easier to parse and format the output.
 
 ** Usage
 
-** Dependencies
+Example:
 
-** Installation
+#+BEGIN_SRC lisp
+    (with-time
+      (drakma:http-request "https://api.simplyrets.com/properties"
+                          :basic-authorization '("simplyrets" "simplyrets")))
+
+    =>
+    ("Evaluation took:" "0.629 seconds of real time"
+     "0.190001 seconds of total run time (0.166667 user, 0.023334 system)"
+     "[ Run times consist of 0.030 seconds GC time, and 0.161 seconds non-GC time. ]"
+     "30.21% CPU" "158 lambdas converted" "2,133,683,041 processor cycles"
+     "1 page fault" "22,560,320 bytes consed" "")
+#+END_SRC
 
 ** Author
-
 + Cody Reichert (codyreichert@gmail.com)
 
-** Copyright
+** License
+MIT
 
+** Copyright
 Copyright (c) 2015 Cody Reichert (codyreichert@gmail.com)
