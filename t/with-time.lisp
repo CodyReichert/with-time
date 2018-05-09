@@ -1,14 +1,20 @@
 (in-package :cl-user)
-(defpackage timer-test
+(defpackage with-time-test
   (:use :cl
-        :timer
+        :with-time
         :prove))
-(in-package :timer-test)
+(in-package :with-time-test)
 
-;; NOTE: To run this test file, execute `(asdf:test-system :timer)' in your Lisp.
+;; NOTE: To run this test file, execute `(asdf:test-system :with-time)' in your Lisp.
 
-(plan nil)
+(setf *enable-colors* nil)
 
-;; blah blah blah.
+(plan 1)
 
+(subtest "with-time test"
+  (is-expand (with-time form)
+	     (let ((with-time::fn
+		    (sb-ext:call-with-timing #'with-time::stream-time (lambda () form))))
+	       (values with-time::fn (with-time::cons-time-output with-time:*timer-stream*)))))
+ 
 (finalize)

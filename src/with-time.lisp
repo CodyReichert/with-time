@@ -7,7 +7,7 @@
 
 ;; Example:
 
-; (with-time ()
+; (with-time
 ;   (drakma:http-request "https://api.simplyrets.com/properties"
 ;                        :basic-authorization '("simplyrets" "simplyrets")))
 
